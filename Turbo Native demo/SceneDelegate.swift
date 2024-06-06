@@ -33,17 +33,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 }
 
 extension SceneDelegate: SessionDelegate {
-    func session(_ session: Turbo.Session, didProposeVisit proposal: VisitProposal) {
+    func session(_ session: Session, didProposeVisit proposal: VisitProposal) {
         let controller = VisitableViewController(url: proposal.url)
         session.visit(controller, options: proposal.options)
         navigationController.pushViewController(controller, animated: true)
     }
 
-    func session(_ session: Turbo.Session, didFailRequestForVisitable visitable: Turbo.Visitable, error: Error) {
+    func session(_ session: Session, didFailRequestForVisitable visitable: Visitable, error: Error) {
         // TODO: Handle errors.
     }
 
-    func sessionWebViewProcessDidTerminate(_ session: Turbo.Session) {
+    func sessionWebViewProcessDidTerminate(_ session: Session) {
         // TODO: Handle dead web view.
     }
 }
